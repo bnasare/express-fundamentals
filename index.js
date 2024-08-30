@@ -17,6 +17,15 @@ app.get("/r/:subreddit/:postId", (req, res) => {
   console.log(req.params);
 });
 
+app.get("/search", (req, res) => {
+  const { q } = req.query;
+  if (!q) {
+    res.send("NOTHING FOUND!");
+  } else {
+    res.send(`<h1>Search results for: ${q}</h1>`);
+  }
+});
+
 app.post("/cats", (req, res) => {
   res.send("POST CATS");
 });
