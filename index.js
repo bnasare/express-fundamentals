@@ -2,44 +2,10 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-// app.use((req, res, next) => {
-//   console.log("WE GOT A NEW REQUEST");
-//   res.send("Hello Worldddd!");
-// });
+app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-app.get("/r/:subreddit/:postId", (req, res) => {
-  const { subreddit, postId } = req.params;
-  res.send(`<h1>Viewing the post ID: ${postId} on ${subreddit} subreddit</h1>`);
-  console.log(req.params);
-});
-
-app.get("/search", (req, res) => {
-  const { q } = req.query;
-  if (!q) {
-    res.send("NOTHING FOUND!");
-  } else {
-    res.send(`<h1>Search results for: ${q}</h1>`);
-  }
-});
-
-app.post("/cats", (req, res) => {
-  res.send("POST CATS");
-});
-
-app.get("/cats", (req, res) => {
-  res.send("MEOWWWWWWWWWW");
-});
-
-app.get("/dogs", (req, res) => {
-  res.send("WOOF WOOF");
-});
-
-app.get("*", (req, res) => {
-  res.send("Error!");
+  res.render("home.ejs");
 });
 
 app.listen(port, () => {
