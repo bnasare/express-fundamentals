@@ -10,6 +10,11 @@ app.get("/", (req, res) => {
   res.render("home.ejs");
 });
 
+app.get("/random", (req, res) => {
+  const num = Math.floor(Math.random() * 10) + 1;
+  res.render("random", { rand: num });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
