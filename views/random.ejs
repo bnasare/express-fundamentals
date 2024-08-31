@@ -7,5 +7,14 @@
   </head>
   <body>
     <h1>Your random number is <%=rand%></h1>
+    <% if (rand%2===0){ %>
+    <h2>Even</h2>
+    <% } else { %>
+    <h2>Odd</h2>
+    <%} %>
+    <h3>
+      That number is <%= rand %2 === 0 ? "Even".toUpperCase() :
+      "Odd".toUpperCase() %>
+    </h3>
   </body>
 </html>
